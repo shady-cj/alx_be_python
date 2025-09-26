@@ -6,7 +6,7 @@ def perform_operation(num1, num2, operation):
         case "subtract":
             result = num1 - num2
         
-        case "multipy":
+        case "multiply":
             result = num1 * num2
 
         case "divide":
