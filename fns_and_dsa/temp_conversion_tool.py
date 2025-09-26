@@ -13,7 +13,7 @@ def main():
     try:
         temperature = int(input("Enter the temperature to convert: "))
     except ValueError:
-        raise Exception("Please enter a numeric value")
+        raise Exception("Invalid temperature. Please enter a numeric value.")
     temperature_unit = input("Is this temperature in Celsius or Fahrenheit? (C/F): ")
 
     result = None
