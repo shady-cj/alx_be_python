@@ -18,6 +18,6 @@ class Book:
         return f"Book('{self.title}', '{self.author}', {self.year})"
 
 
-    def __delattr__(self, name):
-        print(f"Deleting {name}")
+    def __del__(self):
+        print(f"Deleting {self.title}")
 
