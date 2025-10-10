@@ -2,18 +2,38 @@ class Book:
     def __init__(self, title, author):
         self.title = title
         self.author = author
+
+    def __str__(self):
+        return f"Book: {self.title} by {self.author}"
+    
+    def __repr__(self):
+        return f"Book('{self.title}', '{self.author}')"
+    
     
 
 class EBook(Book):
     def __init__(self, title, author, file_size):
         super().__init__(title, author)
         self.file_size = file_size
+    
+    def __str__(self):
+        return f"EBook: {self.title} by {self.author}, File Size: {self.file_size}KB"
+
+    def __repr__(self):
+        return f"EBook('{self.title}', '{self.author}', {self.file_size})"
+    
 
 
 class PrintBook(Book):
     def __init__(self, title, author, page_count):
         super().__init__(title, author)
         self.page_count = page_count
+
+    def __str__(self):
+        return f"PrintBook: {self.title} by {self.author}, Page Count: {self.page_count}"
+
+    def __repr__(self):
+        return f"PrintBook('{self.title}', '{self.author}', {self.page_count})"
 
 
 class Library:
@@ -22,10 +42,13 @@ class Library:
 
     def add_book(self, book):
         self.books.append(book)
-#         Book: Pride and Prejudice by Jane Austen
-# EBook: Snow Crash by Neal Stephenson, File Size: 500KB
-# PrintBook: The Catcher in the Rye by J.D. Salinger, Page Count: 234
-
+    
     def list_books(self):
         for book in self.books:
             print(f"{book.__class__.__name__}: {book.title} by {book.author}{', File Size: ' + str(book.file_size) + 'KB' if isinstance(book, EBook) else ', Page Count: ' + str(book.page_count) if isinstance(book, PrintBook) else ''}")
+
+    def __str__(self):
+        return f"Library with {len(self.books)} books"
+    
+    def __repr__(self):
+        return f"Library(books={self.books})"
